@@ -1,0 +1,836 @@
+/* Simple Timeline Styles with Animations */
+.timeline-card {
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.dark .timeline-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Timeline circle animations */
+.timeline-circle {
+    opacity: 0;
+    transform: scale(0.8);
+    animation: scaleIn 0.6s ease forwards;
+    /* Ensure circle is precisely centered for both left and right cards */
+    left: 50% !important;
+    transform: translateX(-50%) scale(0.8);
+    animation: scaleIn 0.6s ease forwards;
+}
+
+.timeline-circle:hover {
+    transform: translateX(-50%) scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Date badge animations */
+.timeline-date-badge {
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInDown 0.6s ease forwards;
+}
+
+.timeline-date-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Staggered animation delays */
+.timeline-item:nth-child(1) .timeline-card {
+    animation-delay: 0.2s;
+}
+
+.timeline-item:nth-child(1) .timeline-circle {
+    animation-delay: 0.4s;
+}
+
+.timeline-item:nth-child(1) .timeline-date-badge {
+    animation-delay: 0.1s;
+}
+
+.timeline-item:nth-child(2) .timeline-card {
+    animation-delay: 0.6s;
+}
+
+.timeline-item:nth-child(2) .timeline-circle {
+    animation-delay: 0.8s;
+}
+
+.timeline-item:nth-child(2) .timeline-date-badge {
+    animation-delay: 0.5s;
+}
+
+.timeline-item:nth-child(3) .timeline-card {
+    animation-delay: 1.0s;
+}
+
+.timeline-item:nth-child(3) .timeline-circle {
+    animation-delay: 1.2s;
+}
+
+.timeline-item:nth-child(3) .timeline-date-badge {
+    animation-delay: 0.9s;
+}
+
+.timeline-item:nth-child(4) .timeline-card {
+    animation-delay: 1.4s;
+}
+
+.timeline-item:nth-child(4) .timeline-circle {
+    animation-delay: 1.6s;
+}
+
+.timeline-item:nth-child(4) .timeline-date-badge {
+    animation-delay: 1.3s;
+}
+
+/* Timeline line animation */
+.timeline-line {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: 0.3s;
+    position: relative;
+}
+
+.timeline-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to bottom, #8E5572, #BBBE64);
+    animation: growDown 2s ease forwards;
+    animation-delay: 0.5s;
+}
+
+/* Mobile timeline animations */
+.mobile-timeline-item {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: slideInLeft 0.8s ease forwards;
+}
+
+.mobile-timeline-item:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.mobile-timeline-item:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.mobile-timeline-item:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.mobile-timeline-item:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.mobile-timeline-item:hover {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+
+/* Keyframe animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growDown {
+    from {
+        height: 0%;
+    }
+    to {
+        height: 100%;
+    }
+}
+
+.timeline-line-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to bottom, #8E5572, #BBBE64);
+    animation: growDown 2s ease forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Left side content animation */
+.timeline-content-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 0.8s ease forwards;
+    margin-right: 8px; /* Add some extra spacing to align with timeline circle */
+}
+
+/* Right side content animation */
+.timeline-content-right {
+    opacity: 0;
+    transform: translateX(50px);
+    animation: slideInRight 0.8s ease forwards;
+}
+
+/* Hover effects for timeline content */
+.timeline-card-content:hover h3 {
+    color: #BBBE64;
+    transition: color 0.3s ease;
+}
+
+.timeline-card-content:hover .timeline-company {
+    transform: translateX(5px);
+    transition: transform 0.3s ease;
+}
+
+/* Bullet point animations */
+.timeline-card ul li {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.timeline-card ul li:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.timeline-card ul li:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.timeline-card ul li:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.timeline-card ul li:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+/* Desktop timeline hidden on mobile */
+@media (max-width: 768px) {
+    .md\:hidden {
+        display: none;
+    }
+    
+    .md\:block {
+        display: block;
+    }
+    
+    /* Reduce animation delays on mobile */
+    .mobile-timeline-item {
+        animation-delay: 0.1s;
+    }
+    
+    .mobile-timeline-item:nth-child(1) {
+        animation-delay: 0.1s;
+    }
+    
+    .mobile-timeline-item:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+    
+    .mobile-timeline-item:nth-child(3) {
+        animation-delay: 0.3s;
+    }
+    
+    .mobile-timeline-item:nth-child(4) {
+        animation-delay: 0.4s;
+    }
+}
+
+/* Portfolio CSS Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom color variables */
+:root {
+    --eggplant: #8E5572;
+    --eggplant-light: #a6677e;
+    --olive: #BBBE64;
+    --olive-darker: #9da052;
+    --olive-light: #d1d484;
+    --violet: #443850;
+    --violet-light: #6b5a72;
+    --driftwood: #BCAA99;
+    --driftwood-darker: #a3927f;
+    --driftwood-light: #d2c4b6;
+}
+
+/* Dark mode enhancements */
+.dark body {
+    background-color: #1a1a1a;
+    color: #e5e5e5;
+}
+
+.dark .bg-white {
+    background-color: #2d2d2d !important;
+    color: #e5e5e5 !important;
+}
+
+.dark .text-gray-700 {
+    color: #d1d1d1 !important;
+}
+
+.dark .border-gray-100 {
+    border-color: #4a4a4a !important;
+}
+
+/* Link and button styling */
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--eggplant);
+}
+
+.dark a:hover {
+    color: var(--olive);
+}
+
+/* Button reset for clean focus states */
+button {
+    appearance: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Button with bg color */
+.bg-\[\#8E5572\],
+.bg-\[\#BCAA99\] {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Remove browser default styling for buttons */
+button::-moz-focus-inner {
+    border: 0;
+}
+
+/* Enhanced animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Profile image animation */
+.profile-image {
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+/* Section title underline effect */
+.section-title-underline {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, var(--eggplant), var(--olive));
+    border-radius: 2px;
+}
+
+/* Skill tags styling */
+.skill-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    margin: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+    background-color: #f3f4f6;
+    color: var(--violet);
+    border: 1px solid transparent;
+}
+
+.skill-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--eggplant);
+    color: white;
+}
+
+/* Dark mode skill tags */
+.dark .skill-tag {
+    background-color: #374151;
+    color: #d1d5db;
+}
+
+.dark .skill-tag:hover {
+    background-color: var(--eggplant);
+    color: white;
+}
+
+/* Date badge styling */
+.date-badge {
+    background: linear-gradient(135deg, var(--eggplant), var(--violet));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.date-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.dark .date-badge {
+    background: linear-gradient(135deg, var(--eggplant-light), var(--violet-light));
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Award and publication card hover effects */
+.bg-white.border-l-4 {
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.bg-white.border-l-4:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bg-white.border-l-4:hover .date-badge {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.dark .bg-white.border-l-4:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Description list styling */
+.description-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.description-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.description-list li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: var(--eggplant);
+    font-size: 0.75rem;
+}
+
+/* Project image styling */
+.project-image {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.05);
+}
+
+/* Enhanced card hover effects */
+.bg-white {
+    transition: all 0.3s ease;
+}
+
+.bg-white:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.dark .bg-white:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Fade in sections */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Navigation link active state */
+.nav-link-active {
+    color: var(--eggplant) !important;
+    font-weight: 600 !important;
+    position: relative;
+}
+
+.nav-link-active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--eggplant);
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+}
+
+.dark .nav-link-active {
+    color: var(--olive) !important;
+}
+
+.dark .nav-link-active::after {
+    background-color: var(--olive);
+}
+
+/* Navigation link hover effects */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--eggplant);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.dark .nav-link::after {
+    background-color: var(--olive);
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* Typewriter cursor */
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: currentColor;
+    animation: blink 1s step-end infinite;
+}
+
+/* Color utility classes */
+.text-eggplant {
+    color: var(--eggplant);
+}
+
+.text-olive {
+    color: var(--olive);
+}
+
+.text-violet {
+    color: var(--violet);
+}
+
+.text-driftwood {
+    color: var(--driftwood);
+}
+
+.bg-eggplant {
+    background-color: var(--eggplant);
+}
+
+.bg-olive {
+    background-color: var(--olive);
+}
+
+.bg-violet {
+    background-color: var(--violet);
+}
+
+.bg-driftwood {
+    background-color: var(--driftwood);
+}
+
+/* Background shape colors */
+.bg-eggplant-light {
+    background-color: var(--eggplant-light);
+}
+
+.bg-olive-light {
+    background-color: var(--olive-light);
+}
+
+.bg-violet-light {
+    background-color: var(--violet-light);
+}
+
+.bg-driftwood-light {
+    background-color: var(--driftwood-light);
+}
+
+/* Gradient backgrounds */
+.gradient-primary {
+    background: linear-gradient(135deg, var(--eggplant), var(--violet));
+}
+
+.gradient-secondary {
+    background: linear-gradient(135deg, var(--olive), var(--driftwood));
+}
+
+/* Responsive design enhancements */
+@media (max-width: 768px) {
+    .section-title-underline::after {
+        width: 40px;
+    }
+    
+    .profile-image {
+        width: 16rem !important;
+        height: 16rem !important;
+    }
+    
+    .skill-tag {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.6rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .background-shapes,
+    .scroll-top-btn,
+    nav,
+    footer {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    .fade-in-section {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .fade-in-section {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Focus styles for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(142, 85, 114, 0.4); /* eggplant color with transparency */
+    border-radius: 0.25rem;
+}
+
+/* Focus-visible styles (only shows outline when navigating with keyboard) */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible),
+textarea:focus:not(:focus-visible),
+select:focus:not(:focus-visible) {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Remove default browser outlines */
+:focus {
+    outline: none !important;
+}
+
+/* For WebKit browsers */
+::-webkit-focus-ring-color {
+    color: transparent !important;
+}
+
+/* For Firefox */
+::-moz-focus-inner {
+    border: 0 !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .skill-tag {
+        border: 2px solid currentColor;
+    }
+    
+    .bg-white {
+        border: 1px solid #000;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--eggplant);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--eggplant-light);
+}
