@@ -1,4 +1,4 @@
-/* Simple Timeline Styles with Animations */
+
 .timeline-card {
     transition: all 0.3s ease;
     opacity: 0;
@@ -338,23 +338,167 @@ html {
     --driftwood-light: #d2c4b6;
 }
 
-/* Dark mode enhancements */
-.dark body {
-    background-color: #1a1a1a;
-    color: #e5e5e5;
+/* DARK MODE STYLES - COMPLETELY FIXED */
+.dark {
+    background-color: #1a1a1a !important;
+    color: #e5e5e5 !important;
 }
 
+.dark body {
+    background-color: #1a1a1a !important;
+    color: #e5e5e5 !important;
+}
+
+/* Fix navigation in dark mode */
+.dark nav {
+    background-color: #2d2d2d !important;
+    color: #e5e5e5 !important;
+}
+
+/* Fix all white background elements in dark mode */
 .dark .bg-white {
     background-color: #2d2d2d !important;
     color: #e5e5e5 !important;
 }
 
-.dark .text-gray-700 {
+/* Fix all text colors in dark mode */
+.dark .text-gray-700,
+.dark .text-gray-600,
+.dark .text-gray-500,
+.dark .text-gray-400,
+.dark .text-gray-300 {
     color: #d1d1d1 !important;
 }
 
-.dark .border-gray-100 {
+.dark .text-\[\#443850\] {
+    color: #e5e5e5 !important;
+}
+
+/* Fix skill card text in dark mode */
+.dark .bg-white .text-\[\#443850\] {
+    color: #e5e5e5 !important;
+}
+
+/* Fix skill card labels and any spans */
+.dark .bg-white span,
+.dark span {
+    color: #e5e5e5 !important;
+}
+
+/* Fix all paragraph text */
+.dark p {
+    color: #d1d1d1 !important;
+}
+
+/* Fix small text */
+.dark .text-sm {
+    color: #d1d1d1 !important;
+}
+
+/* Fix all heading colors */
+.dark h1, 
+.dark h2, 
+.dark h3, 
+.dark h4, 
+.dark h5, 
+.dark h6 {
+    color: #e5e5e5 !important;
+}
+
+/* Fix section headers specifically */
+.dark .text-3xl,
+.dark .text-2xl,
+.dark .text-xl,
+.dark .text-lg {
+    color: #e5e5e5 !important;
+}
+
+/* Fix borders in dark mode */
+.dark .border-gray-100,
+.dark .border-gray-200,
+.dark .border-gray-300 {
     border-color: #4a4a4a !important;
+}
+
+/* Fix specific gradient backgrounds */
+.dark .bg-gradient-to-r {
+    background: linear-gradient(to right, #2d2d2d, #2d2d2d) !important;
+    color: #e5e5e5 !important;
+}
+
+/* Fix skill category headers */
+.dark .text-2xl {
+    color: #e5e5e5 !important;
+}
+
+/* Fix skill icons and labels in groups */
+.dark .group .text-\[\#443850\],
+.dark .group span {
+    color: #e5e5e5 !important;
+}
+
+/* Fix any remaining dark text issues */
+.dark * {
+    border-color: #4a4a4a;
+}
+
+/* Ensure proper contrast for buttons */
+.dark .bg-\[\#8E5572\] {
+    background-color: #8E5572 !important;
+    color: white !important;
+}
+
+.dark .bg-\[\#BCAA99\] {
+    background-color: #BCAA99 !important;
+    color: #2d2d2d !important;
+}
+
+/* Fix footer in dark mode */
+.dark footer {
+    background-color: #2d2d2d !important;
+    color: #e5e5e5 !important;
+}
+
+/* Fix any cards or containers */
+.dark .rounded-lg,
+.dark .rounded-xl,
+.dark .rounded-2xl {
+    background-color: #2d2d2d !important;
+    color: #e5e5e5 !important;
+}
+
+/* Timeline specific fixes */
+.dark .timeline-card {
+    background-color: #2d2d2d !important;
+    color: #e5e5e5 !important;
+}
+
+/* Project cards specific fixes */
+.dark .project-card {
+    background-color: #2d2d2d !important;
+    color: #e5e5e5 !important;
+}
+
+/* Fix all list items */
+.dark li {
+    color: #d1d1d1 !important;
+}
+
+/* Fix all divs */
+.dark div {
+    color: inherit;
+}
+
+/* Force fix for stubborn elements */
+.dark .bg-white * {
+    color: #e5e5e5 !important;
+}
+
+/* Fix shadow colors in dark mode */
+.dark .shadow-md,
+.dark .shadow-lg,
+.dark .shadow-xl {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* Link and button styling */
@@ -394,39 +538,6 @@ button::-moz-focus-inner {
 }
 
 /* Enhanced animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 @keyframes blink {
     0%, 50% {
         opacity: 1;
@@ -831,6 +942,18 @@ select:focus:not(:focus-visible) {
     border-radius: 4px;
 }
 
+.dark ::-webkit-scrollbar-track {
+    background: #2d2d2d;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: var(--olive);
+}
+
 ::-webkit-scrollbar-thumb:hover {
     background: var(--eggplant-light);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: var(--olive-darker);
 }
