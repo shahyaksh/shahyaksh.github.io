@@ -317,25 +317,8 @@ skillTags.forEach(tag => {
     });
 });
 
-// --- Initialize background shapes ---
+// --- Initialize page extras ---
 document.addEventListener('DOMContentLoaded', function() {
-    // Create background shapes container if it doesn't exist
-    if (!document.querySelector('.background-shapes')) {
-        const shapesContainer = document.createElement('div');
-        shapesContainer.className = 'background-shapes';
-        document.body.appendChild(shapesContainer);
-        
-        // Add random shapes
-        for (let i = 0; i < 10; i++) {
-            const shape = document.createElement('div');
-            shape.className = `shape shape-${Math.floor(Math.random() * 4) + 1}`;
-            shape.style.left = `${Math.random() * 100}%`;
-            shape.style.top = `${Math.random() * 100}%`;
-            shape.style.animationDelay = `${Math.random() * 5}s`;
-            shapesContainer.appendChild(shape);
-        }
-    }
-    
     // Add staggered animations to skill cards
     const skillCards = document.querySelectorAll('#skills .bg-white');
     skillCards.forEach((card, index) => {

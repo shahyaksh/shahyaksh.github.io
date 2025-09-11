@@ -320,6 +320,15 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Site background: clean, subtle gradient for light and dark */
+.site-bg {
+    background: radial-gradient(1200px circle at 20% -10%, #ffffff 0%, #F2F7F2 40%, #ECF2EC 100%);
+}
+
+.dark .site-bg {
+    background: radial-gradient(1200px circle at 20% -10%, #111111 0%, #16181a 40%, #0f1315 100%);
+}
+
 html {
     scroll-behavior: smooth;
 }
